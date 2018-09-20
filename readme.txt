@@ -1,6 +1,6 @@
 Very Important INFO:
 ********************
-1) This tool just work in Linux platforms with Amd Radeon Drivers installed
+1) This tool just work in Linux platforms with "AMD Radeon™ Software for Linux® Driver" installed
 2) Only tested on Debian & Ubuntu Distributions
 
 -------------------------------------------------------------------------------------------------------
