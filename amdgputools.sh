@@ -151,7 +151,9 @@ cat << EOF
 -------------------------------------------------------------------------------------------------------
 |                                       AMDGPU-TOOLS V.1.0 - HELP                                     |
 -------------------------------------------------------------------------------------------------------
-usage: $0 [option] args
+USAGE: $0 [option] args
+
+EXAMPLE: $0 -g 0 -f 50
 
 OPTIONS:
 	-g|--gpu	set for select the GPU by specific ID [should be combined with the option "-f"]
