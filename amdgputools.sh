@@ -154,7 +154,8 @@ cat << EOF
 USAGE: $0 [option] args
 
 EXAMPLE:
-        $0 -g 0 -f 50
+        By GPU ID:      $0 -g 0 -f 50
+        For All GPUs:   $0 -f 50
 
 OPTIONS:
 	-g|--gpu	set for select the GPU by specific ID [should be combined with the option "-f"]
