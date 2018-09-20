@@ -153,7 +153,8 @@ cat << EOF
 -------------------------------------------------------------------------------------------------------
 USAGE: $0 [option] args
 
-EXAMPLE: $0 -g 0 -f 50
+EXAMPLE:
+        $0 -g 0 -f 50
 
 OPTIONS:
 	-g|--gpu	set for select the GPU by specific ID [should be combined with the option "-f"]
@@ -162,8 +163,8 @@ OPTIONS:
 	-h|--help	set for help
 
 INFO:
-      1. if you need to combine options "-g" and "-f" you must do it in this respective order.
-      2. any other options combination cannot be made.
+        1. if you need to combine options "-g" and "-f" you must do it in this respective order.
+        2. any other options combination cannot be made.
 -------------------------------------------------------------------------------------------------------
 EOF
 }
