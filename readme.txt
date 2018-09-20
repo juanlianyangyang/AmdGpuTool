@@ -6,7 +6,7 @@ Very Important INFO:
 -------------------------------------------------------------------------------------------------------
 |                                       AMDGPU-TOOLS V.1.0 - HELP                                     |
 -------------------------------------------------------------------------------------------------------
-USAGE: amdgputools.sh [option] args
+USAGE:  amdgputools.sh [option] args
 
 EXAMPLE:
         By GPU ID:      amdgputools.sh -g 0 -f 50
