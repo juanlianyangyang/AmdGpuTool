@@ -96,17 +96,6 @@ amdgpuinfo() {
    printf "$tw"
 }
 
-#amdgputw() {
-#   tw=0
-#   for GPU in /sys/kernel/debug/dri/?/; do
-#      cd $GPU && GPUdir="`pwd`"
-#      watts=$(cat "$GPUdir"/amdgpu_pm_info | grep average | awk '{print $1}')
-#      tw=$(echo "$tw + $watts" | bc)
-#   done
-#   tw=$(echo "$tw" | cut -c1-3)
-#   printf "$tw"
-#}
-
 gpuinfo() {
    local GPUcount="0";
    for GPU in  /sys/class/drm/card?/ ; do
@@ -140,7 +129,6 @@ gpuprint() {
    info=$(gpuinfo)
    vendor=$(gpuvendor)
    amdinfo=$(amdgpuinfo)
-#   tw=$(amdgputw)
    str=$(paste <(echo "$info") <(echo "$bus") <(echo "$amdinfo") <(echo "$vendor"))
    tw=$(echo "$str" | grep -v GPU | awk '{print $1}')
    str=$(echo "$str" | grep GPU)
@@ -149,14 +137,12 @@ gpuprint() {
    printf "%-49s %s %48s\n" "|" "AMDGPU-TOOLS V.1.0 - MONITOR" "|"
    printf "%0.s-" {1..127}
    printf "\n"
-#   printf "$str" | awk '{print $1 " - " $2 " - " $5 " - " $4 " - " $3 " - " $9 " - " $8 " - " $6 " - " $7 " - " $10 " " $11 " " $12 " " $13}'
    printf "$str" | awk '{print $1 "  " $2 "  " $5 "  " $4 "  " $3 "  " $9 "  " $8 "  " $6 "  " $7 "  " $10 " " $11 " " $12 " " $13}'
    printf "%0.s-" {1..127}
    printf "\n"
    printf "%-50s WATTS[%s] %65s\n" "|" "$tw" "|"
    printf "%0.s-" {1..127}
    printf "\n"
-#    printf "Press [Ctrl + C] to exit...\n"
 }
 
 # MAIN
@@ -180,8 +166,7 @@ INFO:
 EOF
 }
 
-# TEMP=`getopt -o :g:f:ih --long gpu:,fan-speed:,help,info -- "$@"`
-TEMP=`getopt :g:f:ih $*` # For make it works in MAC OS X
+TEMP=`getopt -o :g:f:ih --long gpu:,fan-speed:,help,info -- "$@"`
 if [[ $? -ne 0 ]]; then
    err
    exit 2
@@ -208,7 +193,6 @@ elif [[ ! -z ${fanspeed} ]] && [[ ${fanspeed} =~ $num ]] && [[ $argsCount -eq 2 
    fi
    set_fans_speeds # FOR CHANGE ALL GPU FANSPEED
 elif [[ $iSwitch -eq 1 ]] && [[ $argsCount -eq 1 ]] && [[ $gSwitch -eq 0 ]] && [[ $fSwitch -eq 0 ]] ; then
-#    time gpuprint # FOR GET GPUs INFO
    gpuprint # FOR GET GPUs INFO
 else
    err
